@@ -10,5 +10,5 @@ Ce programme permet aux utilisateurs de se connecter à un serveur Ecommerce et 
 
 Nous espérons que vous l'apprécierez !
 
--Les gitteurs du quartier
-# ETNA_Bubble_Tea
+--- Comment l'utiliser ---
+
