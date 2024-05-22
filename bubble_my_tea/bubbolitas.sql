@@ -41,7 +41,7 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `username`, `passwo
 --
 
 CREATE TABLE `products` (
-    `id` int(11) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `name` varchar(70) NOT NULL,
     `description` text NOT NULL,
     `price` int(11) NOT NULL,
