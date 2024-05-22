@@ -12,3 +12,11 @@ Nous espérons que vous l'apprécierez !
 
 --- Comment l'utiliser ---
 
+1. Créez un environnement viturel.
+2. pip install requirements.txt
+3. Créer un utilisateur admin avec admin en mdp sur mySQL.
+4. Lui donner tous les droits.
+5. Ensuite à la racine du projet, faire : mysql -u admin -p bubbolitas_db < bubbolitas.sql.
+6. Faire les migrations : python3 manage.py migrate && python3 manage.py makemigrations
+7. Pour lancer le serveur, faites : python3 manage.py runserver
+8. Amusez-vous :) 
