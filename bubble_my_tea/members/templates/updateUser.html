@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bubbolitas</title>
+        <link rel="stylesheet" href="{% static '../static/css/updateUser.css'%}">
+</head>
+<header>
+    <a href = "/"><img src="../static/Capture_d_écran_2024-04-18_à_16.42.52-removebg-preview (1).png" alt=""></a>
+        <div class="button-card-bubble-tea">
+            <a href="/profile">
+                <button class="btn">Mon profil</button>
+             </a>
+            <a href="/orders">
+                <button class="btn">Mes commandes</button>
+             </a>
+             <a href="{% url 'logout' %}" method="post">
+                <button class="btn">Se déconnecter</button>
+             </a>
+        </div>  
+        {% csrf_token %}
+    </form>
+</header>
+<body>  
+    <div class="container">
+        <form id="form" action="{% url 'updateUser' %}" method="post">
+            <h1>Modifier mon profil</h1>
+            {% csrf_token %}
+            <div class="input-control">
+                <label for="username">Pseudo</label>
+                {{ form.username.label }}
+                <input id="username" name="username" type="text">
+                {{ form.username }}
+            </div>
+            <div class="input-control">
+                <label for="password">Mot de passe</label>
+                {{ form.password1.label }}
+                <input id="password"name="password" type="password">
+                {{ form.password }}
+            </div>
+            <div class="input-control">
+                <label for="address">Adresse</label>
+                {{ form.address.label }}
+                <input id="address" name="address" type="text">
+                {{ form.address }}
+            </div>
+            <button type="submit">Modifier</button>
+        </form>
+        <!-- {% if messages %}
+            {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        {% endif %} -->      
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin_Homepage</title>  
+    {% load static %}
+    <link rel="stylesheet" href="{% static '../static/css/admin.css'%}">
+</head>
+<body>
+    <header>
+        <img src="../static/Capture_d_écran_2024-04-18_à_16.42.52-removebg-preview (1).png" alt="">            
+            <div class="button-card-bubble-tea-login">
+                <a href="/addBubbletea">
+                    <button class="btn-add">Ajouter</button>
+                 </a>
+                 <a href="{% url 'logout' %}" method="post">
+                    <button class="btn">Déconnexion</button>
+                 </a>
+                <!-- <button class="btn"><a style="text-decoration: none"href="/login" >login</a></button> -->
+            </div>  
+            {% csrf_token %}
+        </form>
+        {% comment %}<form id="form" action="{% url 'deleteBubbletea'%}" method="post">
+            {% csrf_token %}
+            <label for="admin">Delete ?</label>
+            {{ form.delname }}
+            <input id="delete" name="delete" type="text">
+            <button type="submit">Submit</button>
+        </form> {% endcomment %}
+    </header>
+    <div class="test">
+        <main>
+        {% for bubbletea in result %}    
+        <div class="main-bubble-tea">
+            <div class="png-card-bubble-tea">
+                <img src="../static/bubble_tea_1.jpg" alt="">
+            </div>
+            <div class="info-card-bubble-tea">
+                <p class="title-bubble-tea">{{bubbletea.1}}</p>
+                <p><strong>{{bubbletea.3}} €</strong></p>
+            </div> 
+        </div>
+        {% endfor %}
+        </main>
+    </div>
+   
+</body>
+</html>

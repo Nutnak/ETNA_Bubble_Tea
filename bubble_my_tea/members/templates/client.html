@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client_Homepage</title>  
+    {% load static %}
+    <link rel="stylesheet" href="{% static '../static/css/homepage.css'%}">
+</head>
+<body>
+    <header>
+        <a href = "/"><img src="../static/Capture_d_écran_2024-04-18_à_16.42.52-removebg-preview (1).png" alt=""></a>
+            <div class="button-card-bubble-tea">
+                <a href="/profile">
+                    <button class="btn">Mon profil</button>
+                 </a>
+                <a href="/orders">
+                    <button class="btn">Mes commandes</button>
+                 </a>
+                 <a href="{% url 'logout' %}" method="post">
+                    <button class="btn">Se déconnecter</button>
+                 </a>
+            </div>  
+            {% csrf_token %}
+        </form>
+    </header>
+    <div class="test">
+        <main>
+        {% for bubbletea in result %}    
+        <div class="main-bubble-tea">
+            <div class="png-card-bubble-tea">
+                <img src="../static/bubble-tea-5.jpg" alt="">
+            </div>
+            <div class="info-card-bubble-tea">
+                <p class="title-bubble-tea">{{bubbletea.1}}</p>
+                <p><strong>{{bubbletea.3}} €</strong></p>
+            </div>
+            <div class="button-card-bubble-tea">
+                <button class="btn">Ajouter</button>
+            </div>  
+        </div>
+        {% endfor %}
+        </main>
+    </div>
+   
+</body>
+</html>

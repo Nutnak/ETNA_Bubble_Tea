@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/css/login.css">
+</head>
+<body>
+    <div class="container">
+        <form id="form" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <h1>Connexion</h1>
+            <div class="input-control">
+                <label for="email">Email</label>
+                {{ form.email.label }}
+                <input id="email" name="email" type="email">
+                {{ form.email }}
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="password">Mot de passe</label>
+                {{ form.password1.label }}
+                <input id="password" name="password" type="password">
+                {{ form.password1 }}
+                <div class="error"></div>
+            </div>
+            <div  class="link-redirect">
+            <span>Je n'ai pas de compte. <a href="/register">S'inscrire !</a></span>
+            </div>
+            <button type="submit">Se connecter</button>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

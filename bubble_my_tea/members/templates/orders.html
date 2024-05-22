@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/orders.css">
+    <title>Orders</title>  
+</head>
+<body>
+<header>
+    <a href = "/"><img src="../static/Capture_d_écran_2024-04-18_à_16.42.52-removebg-preview (1).png" alt=""></a>
+        <div class="button-card-bubble-tea">
+            <a href="/profile">
+                <button class="btn">Mon profil</button>
+             </a>
+            <a href="/orders">
+                <button class="btn">Mes commandes</button>
+             </a>
+             <a href="{% url 'logout' %}" method="post">
+                <button class="btn">Se déconnecter</button>
+             </a>
+        </div>  
+        {% csrf_token %}
+    </form>
+</header>
+    <h1>Mes commandes</h1>
+    <main>
+        {% for order in result %}
+        <section class="main">
+            <div class="profile-card">
+                <p class="order" >{{order.0}}</p>
+            </div>
+        </section>
+        {% endfor %}
+    </main>
+</body>
+</html>

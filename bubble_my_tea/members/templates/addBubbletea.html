@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbolitas</title>
+    <link rel="stylesheet" href="static/css/login.css">  
+</head>
+<body>  
+    <div class="container">
+        <form id="form" action="{% url 'addBubbletea' %}" method="post">
+            <h1>Ajout d'un bubble tea</h1>
+            {% csrf_token %}
+            <div class="input-control">
+                <label for="name">Nom:</label>
+                {{ form.name }}
+                {% comment %} <input id="name" name="name" type="text">{% endcomment %}
+            </div>
+            <div class="input-control">
+                <label for="description">Description:</label>
+                {{ form.description }}
+                {% comment %}<input id="description" name="description" type="text">{% endcomment %}
+            </div>
+            <div class="input-control">
+                <label for="price">Prix:</label>
+                {{ form.price }}
+                {% comment %}<input id="price" name="price" type="price">{% endcomment %}
+            </div>
+            <div class="input-control">
+                <label for="extras">Extras:</label>
+                {{ form.extras }}
+                {% comment %}<input id="extras" name="extras" type="text">{% endcomment %}
+            </div>
+            <button type="submit">Ajouter le bubble tea</button>
+        </form>
+    </div>
+</body>
+</html>

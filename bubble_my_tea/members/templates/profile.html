@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> Profile page</title>
+        {% load static %}
+    <!---Custom Css File!-->
+    <link rel="stylesheet" href="{% static '../static/css/profile.css'%}">
+</head>
+<body>
+    <header>
+        <a href = "/"><img src="../static/Capture_d_écran_2024-04-18_à_16.42.52-removebg-preview (1).png" alt=""></a>
+            <div class="button-card-bubble-tea">
+                <a href="/profile">
+                    <button class="btn">Mon profil</button>
+                 </a>
+                <a href="/orders">
+                    <button class="btn">Mes commandes</button>
+                 </a>
+                 <a href="{% url 'logout' %}" method="post">
+                    <button class="btn">Se déconnecter</button>
+                 </a>
+            </div>  
+            {% csrf_token %}
+        </form>
+    </header>
+
+    <section class="main">
+        <div class="profile-card">
+            <div class="image">
+            <img src="../static/istockphoto-1337144146-612x612.jpg" alt="" class="profile-pic">
+            </div>
+            {% for element in result %}
+                <div class="data">
+                <h2>Nom: {{element.2}}</h2>
+                <span>Prénom: {{element.1}}</span>
+                <span>Pseudo :{{element.4}}</span>
+                </div>
+            <div class="row">
+            <div class="info">
+                <h3>Mon adresse:</h3>
+                <span>{{element.6}}</span>
+            </div>
+            <div class="info">
+                <h3>Email</h3>
+                <span>{{element.3}}</span>
+            </div>
+            <div class="info">
+                <h3>Membre depuis :</h3>
+                <span>{{element.4}}</span>
+            </div>
+            </div>
+            <div class="button-card-bubble-tea">
+                <a href="/updateUser"><button class="btn" >Editer mon profil</button></a>
+            </div>  
+            {% endfor %} 
+        </div>
+    </section>
+</body>
+</html>
+<!-- <section class="main">
+
+{% for element in result %}
+
+<div class="profile-card">
+    <div class="image">
+    </div>
+    <div class="data">
+        <h2>Prénom: {{element.1}}</h2>
+    </div>
+    <div class="data">
+        <h2>Nom: {{element.2}}</h2>
+    </div>
+    <div class="data">
+        <h2>Email: {{element.3}}</h2>
+    </div>
+    <div class="data">
+        <h2>Adresse: {{element.4}}</h2>
+    </div>
+</div>
+</section>
+{% endfor %} -->
